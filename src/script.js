@@ -8,7 +8,7 @@ function Book(title, author, year){
 
 let book = new Book('Hereditary Thief', 'Alice Krugger', 1997)
 
-
+//Library 
 function Library(){
     this.bookList = []
 
@@ -21,11 +21,12 @@ Library.prototype.displayForm = function(form, btn){
     form.classList.add('form-center')
     btn.classList.add('hidden')    
 }
-
-Library.prototype.getBook = function(title, author, year){
-    const book = new Book(title, author, year)
+Library.getFormData = function(){
+    const data = document.querySelectorAll('form input[type=text]')
+    const book = new Book(data[0],data[1],data[2])
     return book
 }
+
 Library.prototype.updateList = function(book){
     this.bookList.push(book)
 }
@@ -40,20 +41,18 @@ Library.prototype.hideForm = function(form, btn){
 const library = new Library()
 const btn = document.querySelector('button')
 const form = document.querySelector('form')
+
+//Display data form
 btn.addEventListener('click', () =>{
     library.displayForm(form, btn)
 } )
-library.updateList(book)
-library.updateList(book)
-library.updateList(book)
-library.updateList(book)
-library.updateList(book)
 
-const books = library.getBooks()
-let count = 1
-books.forEach(book => {
-    console.log(`${book.title}: ${count}: book.author`)
-    count++
-    
-});
+//Colect data
+form.addEventListener('submit', (event) =>{
+    event.preventDefault()
+
+})
+
+
+
 

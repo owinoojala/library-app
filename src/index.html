@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/output.css">
+    <script src="script.js" defer></script>
+    <title>Library</title>
+</head>
+<body>
+    <header class="bg-black">
+        <h1 class="py-8 text-center text-white text-3xl">Library Books List</h1>
+    </header>
+    <main>
+        <section>
+            <div class="container m-auto py-8">
+                <div class="flex flex-col gap-8 items-center lg:flex-row lg:justify-between lg:flex-row-reverse">
+                    <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="Search...">
+                    <button class="bg-green-500 text-white font-bold py-2 px-8 rounded-md w-full hover:opacity-70 transition-all">Add Books</button>
+                </div>
+            </div>
+        </section>
+        <section id="table-section">
+            <div class="container m-auto py-8">
+                <table class="border-none w-full">
+                    <thead>
+                        <th class="bg-green-500 text-white py-2 px-2 text-start font-bold">Title</th>
+                        <th class="bg-green-500 text-white py-2 px-2 text-start font-bold">Author</th>
+                        <th class="bg-green-500 text-white py-2 px-2 text-start font-bold">Year</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-2">Elephant man</td>
+                            <td class="py-2 px-2">Alexis Slovan</td>
+                            <td class="py-2 px-2">2019</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-2">Elephant man</td>
+                            <td class="py-2 px-2">Alexis Slovan</td>
+                            <td class="py-2 px-2">2019</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-2">Elephant man</td>
+                            <td class="py-2 px-2">Alexis Slovan</td>
+                            <td class="py-2 px-2">2019</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

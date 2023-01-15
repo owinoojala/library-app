@@ -49,8 +49,7 @@ Library.prototype.displayForm = function(form, btn){
     form.classList.add('form-center')
     btn.classList.add('hidden')    
 }
-Library.prototype.getFormData = function(){
-    const data = document.querySelectorAll('form input[type=text]')
+Library.prototype.getFormData = function(data){
     const book = new Book(data[0].value,data[1].value,data[2].value)
     return book
 }
@@ -66,6 +65,7 @@ Library.prototype.hideForm = function(form, btn){
 
 
 
+
 const library = new Library()
 const btn = document.querySelector('button')
 const forms = document.querySelectorAll('form')
@@ -78,9 +78,15 @@ btn.addEventListener('click', () =>{
 
 //Colect data
 forms.forEach(form => {
+    let data = []
     form.addEventListener('submit', (event) =>{
     event.preventDefault()
-    const book = library.getFormData()
+    if(form.id === 'form-1'){
+        data = document.querySelectorAll('#form-1 input[type=text]')
+    }else{
+        data = document.querySelectorAll('#form-2 input[type=text]') 
+    }
+    const book = library.getFormData(data)
     library.updateList(book)
     console.log(book)
     form.reset()

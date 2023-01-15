@@ -6,7 +6,7 @@ function Book(title, author, year){
     this.year  = year
 }
 
-let book = new Book('Hereditary Thief', 'Alice Krugger', 1997)
+
 
 //Library 
 function Library(){
@@ -16,14 +16,42 @@ function Library(){
 Library.prototype.getBooks = function(){
     return this.bookList
 }
+Library.prototype.displayBook = function(book){
+    //get tbody
+    const tboby = document.querySelector('tbody')
+   
+    //Create row
+    const tableRow = document.createElement('tr')
+
+    //Create td for title
+    const td = document.createElement('td')
+    td.className = 'py-2 px-2 capitalize'
+    td.textContent = book.title
+    tableRow.appendChild(td)
+
+    //Create td for author
+    const td1 = document.createElement('td')
+    td1.textContent = book.author
+    td1.className = 'py-2 px-2 capitalize'
+    tableRow.appendChild(td1)
+
+    //Create td for year
+    const td2 = document.createElement('td')
+    td2.className = 'py-2 px-2 capitalize'
+    td2.textContent = book.year
+    tableRow.appendChild(td2)
+
+    //Append row to table body
+    tboby.appendChild(tableRow)   
+}
 Library.prototype.displayForm = function(form, btn){
     form.classList.remove('hidden')
     form.classList.add('form-center')
     btn.classList.add('hidden')    
 }
-Library.getFormData = function(){
+Library.prototype.getFormData = function(){
     const data = document.querySelectorAll('form input[type=text]')
-    const book = new Book(data[0],data[1],data[2])
+    const book = new Book(data[0].value,data[1].value,data[2].value)
     return book
 }
 
@@ -40,17 +68,24 @@ Library.prototype.hideForm = function(form, btn){
 
 const library = new Library()
 const btn = document.querySelector('button')
-const form = document.querySelector('form')
+const forms = document.querySelectorAll('form')
+const absoluteForm = document.querySelector('form.absolute')
 
 //Display data form
 btn.addEventListener('click', () =>{
-    library.displayForm(form, btn)
+    library.displayForm(absoluteForm, btn)
 } )
 
 //Colect data
-form.addEventListener('submit', (event) =>{
+forms.forEach(form => {
+    form.addEventListener('submit', (event) =>{
     event.preventDefault()
-
+    const book = library.getFormData()
+    library.updateList(book)
+    console.log(book)
+    form.reset()
+    library.displayBook(book)
+    });
 })
 
 

@@ -26,7 +26,24 @@
         </section>
         <section id="table-section">
             <div class="container m-auto py-8 flex flex-row gap-8 items-start">
-                <form action="" method="post" class="p-4  absolute hidden bg-green-200 lg:w-2/5 space-y-8 rounded-lg lg:flex flex-col lg:relative">
+                <!-- Full Screen form -->
+                <form action="" method="post" class="p-4 hidden bg-green-200 lg:w-2/5 space-y-8 rounded-lg lg:flex flex-col">
+                    <div class="flex flex-col">
+                        <label for="title">Title</label>
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. The Book of Life">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="title">Author</label>
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. Harry Potter">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="title">Year</label>
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. 2003">
+                    </div>
+                    <input type="submit" value="Add to List" class="bg-green-500 text-white font-bold py-2 px-8 rounded-md w-full hover:opacity-70 transition-all">
+                </form>
+                <!-- Small and medium screens form -->
+                <form action="" method="post" class="p-4  absolute hidden bg-green-200 lg:w-2/5 space-y-8 rounded-lg lg:hidden">
                     <div class="flex flex-col">
                         <label for="title">Title</label>
                         <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. The Book of Life">
@@ -49,9 +66,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="py-2 px-2">Elephant man</td>
-                            <td class="py-2 px-2">Alexis Slovan</td>
-                            <td class="py-2 px-2">2019</td>
+                            <td class="py-2 px-2 uppercase">Elephant man</td>
+                            <td class="py-2 px-2 uppercase">Alexis Slovan</td>
+                            <td class="py-2 px-2 uppercase">2019</td>
                         </tr>
                         <tr>
                             <td class="py-2 px-2">Elephant man</td>

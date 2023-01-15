@@ -20,30 +20,22 @@ Library.prototype.closeForm = function(form, btn){
     form.classList.add('hidden')
     btn.classList.remove('hidden') 
 }
+
 Library.prototype.displayBook = function(book){
     //get tbody
     const tboby = document.querySelector('tbody')
-   
+    
     //Create row
     const tableRow = document.createElement('tr')
 
     //Create td for title
-    const td = document.createElement('td')
-    td.className = 'py-2 px-2 capitalize'
-    td.textContent = book.title
-    tableRow.appendChild(td)
-
+    this.createRow(tableRow,book.title)
+    
     //Create td for author
-    const td1 = document.createElement('td')
-    td1.textContent = book.author
-    td1.className = 'py-2 px-2 capitalize'
-    tableRow.appendChild(td1)
+    this.createRow(tableRow,book.author)
 
     //Create td for year
-    const td2 = document.createElement('td')
-    td2.className = 'py-2 px-2 capitalize'
-    td2.textContent = book.year
-    tableRow.appendChild(td2)
+    this.createRow(tableRow,book.year)
 
     //Append row to table body
     tboby.appendChild(tableRow)   
@@ -57,7 +49,12 @@ Library.prototype.getFormData = function(data){
     const book = new Book(data[0].value,data[1].value,data[2].value)
     return book
 }
-
+Library.prototype.createRow = function(tableRow, data) {
+    const td = document.createElement('td')
+    td.className = 'py-2 px-2 capitalize'
+    td.textContent = data
+    tableRow.appendChild(td)
+}
 Library.prototype.updateList = function(book){
     this.bookList.push(book)
 }

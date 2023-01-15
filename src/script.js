@@ -16,6 +16,10 @@ function Library(){
 Library.prototype.getBooks = function(){
     return this.bookList
 }
+Library.prototype.closeForm = function(form, btn){
+    form.classList.add('hidden')
+    btn.classList.remove('hidden') 
+}
 Library.prototype.displayBook = function(book){
     //get tbody
     const tboby = document.querySelector('tbody')
@@ -60,39 +64,47 @@ Library.prototype.updateList = function(book){
 Library.prototype.hideForm = function(form, btn){
     form.classList.remove('.form-center')
     form.classList.add('hidden')
-    btn.classList.add('hidden')
+    btn.style.display='none'
 }
 
 
 
 
-const library = new Library()
-const btn = document.querySelector('button')
-const forms = document.querySelectorAll('form')
-const absoluteForm = document.querySelector('form.absolute')
+const main = () =>{
+    const library = new Library()
+    const btn = document.querySelector('#add-btn')
+    const forms = document.querySelectorAll('form')
+    const absoluteForm = document.querySelector('form.absolute')
+    const closeBtn = document.querySelector('#close-btn')
 
-//Display data form
-btn.addEventListener('click', () =>{
-    library.displayForm(absoluteForm, btn)
-} )
+    //Display data form
+    btn.addEventListener('click', () =>{
+        library.displayForm(absoluteForm, btn)
+    } )
 
-//Colect data
-forms.forEach(form => {
-    let data = []
-    form.addEventListener('submit', (event) =>{
-    event.preventDefault()
-    if(form.id === 'form-1'){
-        data = document.querySelectorAll('#form-1 input[type=text]')
-    }else{
-        data = document.querySelectorAll('#form-2 input[type=text]') 
-    }
-    const book = library.getFormData(data)
-    library.updateList(book)
-    console.log(book)
-    form.reset()
-    library.displayBook(book)
-    });
-})
+    //Colect data
+    forms.forEach(form => {
+        let data = []
+        form.addEventListener('submit', (event) =>{
+        event.preventDefault()
+        if(form.id === 'form-1'){
+            data = document.querySelectorAll('#form-1 input[type=text]')
+        }else{
+            data = document.querySelectorAll('#form-2 input[type=text]') 
+        }
+        const book = library.getFormData(data)
+        library.updateList(book)
+        console.log(book)
+        form.reset()
+        library.displayBook(book)
+        });
+    })
+
+    closeBtn.addEventListener('click', () =>{
+       library.closeForm(absoluteForm, btn)
+    })
+}
+main()
 
 
 

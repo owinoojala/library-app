@@ -18,7 +18,7 @@
                 
                 <div class="flex flex-col gap-8 items-center  lg:flex-row lg:justify-between lg:flex-row-reverse md:flex-row-reverse">
                     <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="Search...">
-                    <button  class="bg-green-500 text-white font-bold py-2 px-8 rounded-md w-full hover:opacity-70 transition-all lg:hidden">
+                    <button id="add-btn"  class="bg-green-500 text-white font-bold py-2 px-8 rounded-md w-full hover:opacity-70 transition-all lg:hidden">
                         Add Books
                     </button>
                 </div>
@@ -30,31 +30,34 @@
                 <form action="" method="post" id="form-1" class="p-4 hidden bg-green-200 lg:w-2/5 space-y-8 rounded-lg lg:flex flex-col">
                     <div class="flex flex-col">
                         <label for="title">Title</label>
-                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. The Book of Life">
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" required placeholder="eg. The Book of Life">
                     </div>
                     <div class="flex flex-col">
                         <label for="title">Author</label>
-                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. Harry Potter">
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" required placeholder="eg. Harry Potter">
                     </div>
                     <div class="flex flex-col">
                         <label for="title">Year</label>
-                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. 2003">
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" required placeholder="eg. 2003">
                     </div>
                     <input type="submit" value="Add to List" class="bg-green-500 text-white font-bold py-2 px-8 rounded-md w-full hover:opacity-70 transition-all">
                 </form>
                 <!-- Small and medium screens form -->
                 <form action="" method="post" id="form-2" class="p-4  absolute hidden bg-green-200 lg:w-2/5 space-y-8 rounded-lg lg:hidden">
+                    <div class="close">
+                        <button id="close-btn" class="bg-black text-white py-2 px-8 rounded-md">Close</button>
+                    </div>
                     <div class="flex flex-col">
                         <label for="title">Title</label>
-                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. The Book of Life">
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" required placeholder="eg. The Book of Life">
                     </div>
                     <div class="flex flex-col">
                         <label for="title">Author</label>
-                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. Harry Potter">
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" required placeholder="eg. Harry Potter">
                     </div>
                     <div class="flex flex-col">
                         <label for="title">Year</label>
-                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" placeholder="eg. 2003">
+                        <input type="text" class="py-2 px-8 w-full bg-gray-200 rounded-md focus:outline-none" required placeholder="eg. 2003">
                     </div>
                     <input type="submit" value="Add to List" class="bg-green-500 text-white font-bold py-2 px-8 rounded-md w-full hover:opacity-70 transition-all">
                 </form>

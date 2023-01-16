@@ -24,7 +24,7 @@ Library.prototype.closeForm = function(form, btn){
 Library.prototype.displayBook = function(book){
     //get tbody
     const tboby = document.querySelector('tbody')
-    
+
     //Create row
     const tableRow = document.createElement('tr')
 
@@ -44,6 +44,18 @@ Library.prototype.displayForm = function(form, btn){
     form.classList.remove('hidden')
     form.classList.add('form-center')
     btn.classList.add('hidden')    
+}
+Library.prototype.filter = function(text){
+    const regex= new RegExp(text)
+    //Get td elements
+    const tds = document.querySelectorAll('td')
+    tds.forEach(td =>{
+        if(regex.test(td.textContent)){
+            td.style.color = 'green'
+        }else{
+            td.parentElement.style.color = 'red'
+        }
+    })
 }
 Library.prototype.getFormData = function(data){
     const book = new Book(data[0].value,data[1].value,data[2].value)
@@ -73,6 +85,8 @@ const main = () =>{
     const forms = document.querySelectorAll('form')
     const absoluteForm = document.querySelector('form.absolute')
     const closeBtn = document.querySelector('#close-btn')
+    const seachbar = document.querySelector('#search-bar')
+
 
     //Display data form
     btn.addEventListener('click', () =>{
@@ -97,8 +111,14 @@ const main = () =>{
         });
     })
 
+    //Close form
     closeBtn.addEventListener('click', () =>{
        library.closeForm(absoluteForm, btn)
+    })
+
+    //Filter data
+    seachbar.addEventListener('input', () =>{
+        library.filter(seachbar.value)
     })
 }
 main()
